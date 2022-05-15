@@ -1,7 +1,86 @@
 const rolldiceBtn = document.getElementById('roll_dice')
 const dices = document.querySelectorAll('.dice')
-const Cb = document.querySelector('.cube')
+const cubes = document.querySelectorAll('.cube')
 
+//zmiana koloru ścianek po kliknięciu
+cubes.forEach((cube) => {
+    cube.addEventListener('click', () => {
+        cube.classList.toggle('active')
+        const panels = cube.querySelectorAll('.panel--grey')
+        panels.forEach((panel) => {
+            panel.classList.toggle('panel--active')
+        })
+    })
+})
+
+
+//rzut kostką
+rolldiceBtn.addEventListener('click', () => {
+    cubes.forEach((cube) => {
+        if (cube.classList.contains('active')) {
+            cube.classList.add('animation')
+
+            setTimeout(function () {
+                cube.classList.remove('animation')
+            }, 1000)
+        }
+    })
+}
+)
+
+
+
+
+
+/* dices.forEach((dice) => {
+    dice.addEventListener('click', (e) => {
+        if (dice.innerHTML != null) {
+            dice.innerHTML = ''
+        }
+        dice.classList.toggle('choosen')
+        changePanelColor()
+    })
+})
+ 
+
+ 
+ 
+ 
+ 
+rolldiceBtn.addEventListener('click', () => {
+ 
+    Cb.classList.add('animation')
+    setTimeout(function () {
+        Cb.classList.remove('animation')
+    }, 1000) */
+
+
+// for (const position of dices.keys()) {
+
+//     if (dices[position].classList.contains('choosen')) {
+//         /* console.log(position) */
+//         dices[position].innerHTML = `${rollDice(position)}`
+//     }
+// }
+
+/* dices.forEach((diceSc) => {
+    if (diceSc.classList.contains('choosen')) {
+        console.log(dices.keys())
+        diceSc.innerHTML = `${rollDice()}`
+    }
+}) */
+
+/*
+${rollDice()}    
+const score = rollDice()
+    test.innerHTML = score
+    diceScore.innerHTML = `hello` */
+
+
+
+
+
+//generowanie numeru na kostce
 function rollDice(numberOfSides) {
 
     switch (numberOfSides) {
@@ -33,55 +112,6 @@ function rollDice(numberOfSides) {
         case 6:
             return Math.floor(Math.random() * 20) + 1;
     }
-
 }
-
-function pad(num, size) {
-    num = num.toString();
-    while (num.length < size) num = "0" + num;
-    return num;
-}
-
-dices.forEach((dice) => {
-    dice.addEventListener('click', (e) => {
-        if (dice.innerHTML != null) {
-            dice.innerHTML = ''
-        }
-        dice.classList.toggle('choosen')
-    })
-})
-
-
-
-
-rolldiceBtn.addEventListener('click', () => {
-
-    Cb.classList.add('animation')
-    setTimeout(function () {
-        Cb.classList.remove('animation')
-    }, 1000)
-
-
-    // for (const position of dices.keys()) {
-
-    //     if (dices[position].classList.contains('choosen')) {
-    //         /* console.log(position) */
-    //         dices[position].innerHTML = `${rollDice(position)}`
-    //     }
-    // }
-
-    /* dices.forEach((diceSc) => {
-        if (diceSc.classList.contains('choosen')) {
-            console.log(dices.keys())
-            diceSc.innerHTML = `${rollDice()}`
-        }
-    }) */
-
-    /*     
-${rollDice()}    
-    const score = rollDice()
-        test.innerHTML = score
-        diceScore.innerHTML = `hello` */
-})
 
 
