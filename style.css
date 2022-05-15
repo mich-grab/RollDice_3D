@@ -4,6 +4,13 @@
     box-sizing: border-box;
 
 }
+
+:root {
+    --axis1: 1; 
+    --axis2: 0; 
+    --axis3: -1; 
+  }
+
 body {
     background: 
     linear-gradient(45deg, #fcd5ce, #ffffff 70.71%);
@@ -40,7 +47,7 @@ p {
     justify-content: space-evenly;
     width: 110px;
     height: 215px;
-    margin: 5px;
+    margin: 10px;
 }
 
 .dice {
@@ -66,6 +73,7 @@ p {
     position: absolute;
     width: 100px;
     height: 100px;
+    border: 1px solid #000;
     /* backface-visibility: hidden */
   }
 
@@ -74,12 +82,9 @@ p {
 
   }
 
-.panel--red     { background: hsla(  0, 100%, 50%, 0.7); }
-.panel--yellow  { background: hsla( 60, 100%, 50%, 0.7); }
-.panel--green   { background: hsla(120, 100%, 50%, 0.7); }
-.panel--blue    { background: hsla(180, 100%, 50%, 0.7); }
-.panel--purple  { background: hsla(240, 100%, 50%, 0.7); }
-.panel--pink    { background: hsla(300, 100%, 50%, 0.7); } 
+.panel--grey     { background: hsla(0, 0%, 61%, 1); }
+.panel--active  { background: hsla(93, 100%, 76%, 1); }
+
 
 .cube__face--front  { 
     transform: translateZ(50px) rotateX(0deg);
@@ -105,14 +110,12 @@ p {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transform: rotate3d(1, 1, 1, 360deg);
+    transform: rotate3d(var(--axis1), var(--axis2), var(--axis3), 360deg);
 
   }
 
 
-.choosen {
-    background-color: #457b9d;
-}
+
 
 .dice:hover {
     box-shadow: 0 0 5px #457b9d;
@@ -148,9 +151,9 @@ img {
 
 @keyframes animate-cube{
     from{
-       transform: rotate3d(1, -1, 1, 360deg) 2s;
+       transform: rotate3d(0.5, 1, 0, 120deg) 1s;
     }to{
-       transform: rotate3d(-1, 1, -1, 0deg);
+       transform: rotate3d(0, 1, 0, 0deg);
     }
    
 }
