@@ -54,9 +54,9 @@ p {
     width: 100px;
     height: 100px;
     margin-top: 0;
-    background-color: #a8dadc;
+
     border: none;
-    border-radius: 20px;
+    border-radius: 50%;
     font-family: inherit;
     font-size: 50px;
     color: #fff;
@@ -65,61 +65,102 @@ p {
     align-items: center;
     justify-content: center;
 
-    perspective: 400px;
+    perspective: 800px;
 
 }
 
-.cube__face {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    border: 1px solid #000;
-    /* backface-visibility: hidden */
-  }
 
 .animation{
     animation: animate-cube 1s;
 
   }
-
-.panel--grey     { background: hsla(0, 0%, 61%, 1); }
-.panel--active  { background: hsla(93, 100%, 76%, 1); }
-
-
-.cube__face--front  { 
-    transform: translateZ(50px) rotateX(0deg);
- }
-.cube__face--right  { 
-    transform: translateX(50px) rotateY(90deg);
-}
-.cube__face--back   { 
-    transform: translateZ(-50px) rotateY(180deg);
-}
-.cube__face--left   { 
-    transform: translateX(-50px) rotateY(-90deg);
- }
-.cube__face--top    { 
-    transform: translateY(-50px) rotateX(90deg);
-}
-.cube__face--bottom { 
-    transform: translateY(50px) rotateX(-90deg);
- } 
+ 
+.panel--grey     { background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); }
+.panel--active  { background: radial-gradient(circle, rgba(75,251,63,1) 0%, rgba(68,14,255,1) 100%); }
+.panel--red  { background: rgb(218, 7, 7); }
+.panel--blue  { background: rgb(30, 26, 253); }
+.panel--yellow  { background: rgb(223, 236, 33); }
 
 .cube {
     width: 100%;
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transform: rotate3d(var(--axis1), var(--axis2), var(--axis3), 360deg);
+    transform: rotate3d(1, 1, 0, 360deg);
+  }
+/*
+######################################
+Scianki Kostka K4
+*/
+
+.cube_k4__face {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100px; 
+    height: 100px;
+    clip-path:polygon(50% 13%, 100% 100%, 0% 100%); 
+
+    transform-style:preserve-3d;
 
   }
 
-
-
-
-.dice:hover {
-    box-shadow: 0 0 5px #457b9d;
+.cube_k4__face--front  { 
+    transform-origin: center bottom 0;
+ }
+.cube_k4__face--right  { 
+    transform-origin: center bottom 0;
+    transform: rotateX(-70.5deg);
 }
+.cube_k4__face--back   { 
+    transform-origin: left bottom 0;
+    transform:  rotateZ(120deg) translateX(-100px) rotateX(-70.5deg);
+}
+.cube_k4__face--left   { 
+    transform-origin: right bottom 0;
+    transform: rotateZ(60deg) rotateX(-109.5deg);
+}
+
+/*
+#######################################
+Scianki Kostka K6
+*/
+
+.cube_k6__face {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #000;
+    /* backface-visibility: hidden */
+  }
+
+.cube_k6__face--front  { 
+    transform: translateZ(40px) rotateX(0deg);
+ }
+.cube_k6__face--right  { 
+    transform: translateX(40px) rotateY(90deg);
+}
+.cube_k6__face--back   { 
+    transform: translateZ(-40px) rotateY(180deg);
+}
+.cube_k6__face--left   { 
+    transform: translateX(-40px) rotateY(-90deg);
+ }
+.cube_k6__face--top    { 
+    transform: translateY(-40px) rotateX(90deg);
+}
+.cube_k6__face--bottom { 
+    transform: rotateX(-90deg) translateZ(40px);
+ } 
+ /* 
+#######################################
+  */
+
+
+
+
 
 img {
     width: 100px;
@@ -151,7 +192,7 @@ img {
 
 @keyframes animate-cube{
     from{
-       transform: rotate3d(0.5, 1, 0, 120deg) 1s;
+       transform: rotate3d(0.5, 1, 0, 360deg) 1s;
     }to{
        transform: rotate3d(0, 1, 0, 0deg);
     }
