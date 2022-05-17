@@ -1,6 +1,7 @@
 const rolldiceBtn = document.getElementById('roll_dice')
 const dices = document.querySelectorAll('.dice')
 const cubes = document.querySelectorAll('.cube')
+const results = document.querySelectorAll('.result')
 
 //zmiana koloru ścianek po kliknięciu
 cubes.forEach((cube) => {
@@ -17,13 +18,30 @@ cubes.forEach((cube) => {
 //rzut kostką
 rolldiceBtn.addEventListener('click', () => {
     cubes.forEach((cube) => {
+
+
+        //dodanie wyniku
+        for (const position of cubes.keys()) {
+            results[position].innerText = ``
+            if (cubes[position].classList.contains('active')) {
+
+                setTimeout(function () {
+                    results[position].innerText = `${rollDice(position)}`
+                }, 1000)
+            }
+        }
+
+        //obracanie kostką
         if (cube.classList.contains('active')) {
             cube.classList.add('animation')
 
             setTimeout(function () {
                 cube.classList.remove('animation')
             }, 1000)
+
         }
+
+
     })
 }
 )
@@ -32,9 +50,34 @@ rolldiceBtn.addEventListener('click', () => {
 
 
 
+
+
+
+
+
+
+/* cubes.forEach((cube) => {
+    if (cube.classList.contains('active')) {
+        console.log('hello')
+        // diceSc.parentElement.innerHTML = 'hello' `${rollDice()}` 
+    }
+})
+
+
+
+
+for (const position of cubes.keys()) {
+
+    if (cubes[position].classList.contains('active')) {
+        console.log(position)
+        cubes[position].innerHTML = `${rollDice(position)}`
+    }
+}
+ */
+
 /* dices.forEach((dice) => {
     dice.addEventListener('click', (e) => {
-        if (dice.innerHTML != null) {
+        if (dice.innerText != null) {
             dice.innerHTML = ''
         }
         dice.classList.toggle('choosen')
@@ -54,14 +97,14 @@ rolldiceBtn.addEventListener('click', () => {
         Cb.classList.remove('animation')
     }, 1000) */
 
+/* 
+for (const position of dices.keys()) {
 
-// for (const position of dices.keys()) {
-
-//     if (dices[position].classList.contains('choosen')) {
-//         /* console.log(position) */
-//         dices[position].innerHTML = `${rollDice(position)}`
-//     }
-// }
+    if (dices[position].classList.contains('choosen')) {
+        /* console.log(position) 
+        dices[position].innerHTML = `${rollDice(position)}`
+    }
+} 
 
 /* dices.forEach((diceSc) => {
     if (diceSc.classList.contains('choosen')) {
@@ -113,5 +156,3 @@ function rollDice(numberOfSides) {
             return Math.floor(Math.random() * 20) + 1;
     }
 }
-
-
