@@ -76,7 +76,7 @@ p {
   }
  
 .panel--grey     { background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); }
-.panel--active  { background: radial-gradient(circle, rgba(75,251,63,1) 0%, rgba(68,14,255,1) 100%); }
+.panel--active  { background: radial-gradient(circle, rgba(63,94,251,1)0%, rgba(75,251,63,1)100%); }
 .panel--red  { background: rgb(218, 7, 7); }
 .panel--blue  { background: rgb(30, 26, 253); }
 .panel--yellow  { background: rgb(223, 236, 33); }
@@ -159,7 +159,12 @@ Scianki Kostka K6
   */
 
 
-
+.result {
+    position: absolute;
+    z-index: 100;
+    font-size: 32px;
+    pointer-events: none;
+}
 
 
 img {
