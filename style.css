@@ -154,6 +154,58 @@ Scianki Kostka K6
 .cube_k6__face--bottom { 
     transform: rotateX(-90deg) translateZ(40px);
  } 
+
+
+ /*
+#######################################
+Scianki Kostka K8
+*/
+.cube_k8__face {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100px; 
+    height: 100px;
+    clip-path:polygon(50% 13%, 100% 100%, 0% 100%); 
+
+    transform-style:preserve-3d;
+
+    /* backface-visibility: hidden */
+
+  }
+
+.cube_k8__face--front  { 
+    transform: translateZ(-40px) ;
+ }
+.cube_k8__face--right  { 
+    transform-origin: right bottom 0;
+    transform: translateZ(-40px) rotateZ(60deg) rotateX(-70.53deg) ;
+}
+.cube_k8__face--back   { 
+    transform-origin: center bottom 0;
+    transform: translateZ(-40px) rotateX(-109.47deg);
+}
+.cube_k8__face--left   { 
+    transform-origin: left bottom 0;
+    transform: translateZ(-40px) rotateZ(-60deg) rotateX(-70.53deg);
+ }
+.cube_k8__face--top    { 
+    transform-origin: center 13px 0;
+    transform: translateZ(-40px) rotateX(70.53deg) ;
+}
+.cube_k8__face--bottom-1 { 
+    transform-origin: center bottom 40px;
+    transform: translateZ(10px)rotateZ(-120deg) rotateX(70.53deg) translateX(24px) translateZ(50.5px) translateY(-13px);
+ } 
+ .cube_k8__face--bottom-2 { 
+    transform-origin: center bottom 40px;
+    transform: translateZ(10px) rotateZ(120deg) rotateX(70.53deg) translateX(-24px) translateZ(50.5px) translateY(-13px);
+ } 
+ .cube_k8__face--bottom-3 { 
+    transform-origin: center center 0;
+    transform: translateZ(40px) rotateZ(180deg) translateY(-41px);
+ } 
+
  /* 
 #######################################
   */
@@ -197,7 +249,7 @@ img {
 
 @keyframes animate-cube{
     from{
-       transform: rotate3d(0.5, 1, 0, 360deg) 1s;
+       transform: rotate3d(0, 1, 0, 10deg) 1s;
     }to{
        transform: rotate3d(0, 1, 0, 0deg);
     }
